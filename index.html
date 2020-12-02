@@ -2,7 +2,7 @@
   <head>
     <script>
       var params = (new URL(document.location)).searchParams;
-      document.write(params["code"]);
+      document.write(JSON.stringify(params));
     </script>
   </head>
   <body></body>
