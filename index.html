@@ -1,12 +1,8 @@
 <html>
   <head>
     <script>
-var params = (new URL(document.location)).searchParams;
-for(var prm of params){
- document.write(
-    'name :', prm[0], ', value :', prm[1]
-  );
-}
+      var params = (new URL(document.location)).searchParams;
+      document.write(params["code"]);
     </script>
   </head>
   <body></body>
