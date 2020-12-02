@@ -2,7 +2,11 @@
   <head>
     <script>
       var params = (new URL(document.location)).searchParams;
-      document.write(JSON.stringify(params));
+      var obj
+      for(var prm of params){
+        obj[prm[0]] = prm[1];
+      }
+      document.write(JSON.stringify(obj));
     </script>
   </head>
   <body></body>
