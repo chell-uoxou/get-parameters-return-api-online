@@ -2,7 +2,7 @@
   <head>
     <script>
       var params = (new URL(document.location)).searchParams;
-      var obj
+      obj = new Object();
       for(var prm of params){
         obj[prm[0]] = prm[1];
       }
