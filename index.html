@@ -7,6 +7,23 @@
         obj[prm[0]] = prm[1];
       }
       document.write(JSON.stringify(obj));
+      var str = JSON.stringify(obj);
+
+      var listener = function(e){
+
+        e.clipboardData.setData("text/plain" , str);    
+        // 本来のイベントをキャンセル
+        e.preventDefault();
+        // 終わったら一応削除
+         document.removeEventListener("copy", listener);
+      }
+
+      // コピーのイベントが発生したときに、クリップボードに書き込むようにしておく
+      document.addEventListener("copy" , listener);
+
+      // コピー
+      document.execCommand("copy");
+      window.close();
     </script>
   </head>
   <body></body>
