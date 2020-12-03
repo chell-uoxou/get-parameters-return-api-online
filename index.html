@@ -1,29 +1,21 @@
 <html>
   <head>
+    <textarea name="textarea" rows="4" cols="40"></textarea>
     <script>
       var params = (new URL(document.location)).searchParams;
+      var textarea = document.getElementsByTagName("textarea")[0];
+      
       obj = new Object();
       for(var prm of params){
         obj[prm[0]] = prm[1];
       }
-      document.write(JSON.stringify(obj));
+      textarea.value = JSON.stringify(obj);
       var str = JSON.stringify(obj);
-
-      var listener = function(e){
-
-        e.clipboardData.setData("text/plain" , str);    
-        // 本来のイベントをキャンセル
-        e.preventDefault();
-        // 終わったら一応削除
-         document.removeEventListener("copy", listener);
-      }
-
-      // コピーのイベントが発生したときに、クリップボードに書き込むようにしておく
-      document.addEventListener("copy" , listener);
-
+      
+      // 文字をすべて選択
+      textarea.select();
       // コピー
       document.execCommand("copy");
-      window.close();
     </script>
   </head>
   <body></body>
